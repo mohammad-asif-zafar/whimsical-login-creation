@@ -24,17 +24,21 @@ const Index = () => {
       </div>
       
       <div className="maker-container">
-        <h1 className="maker-title">Maker Screen</h1>
+        <div className="maker-header">
+          <h1 className="maker-title">Maker Screen</h1>
+          <div className="maker-subtitle">Please fill in the details below</div>
+        </div>
         
         <div className="maker-form">
           <div className="form-group">
             <label htmlFor="userId">User ID:</label>
-            <input type="text" id="userId" className="input-field" />
+            <input type="text" id="userId" className="input-field" placeholder="Enter user ID" />
           </div>
           
           <div className="form-group">
             <label htmlFor="appCode">App Code:</label>
             <select id="appCode" className="select-field">
+              <option value="" disabled selected>Select app code</option>
               <option value="SPL">SPL</option>
               <option value="APP1">APP1</option>
               <option value="APP2">APP2</option>
@@ -44,7 +48,7 @@ const Index = () => {
           <div className="form-group">
             <label htmlFor="matrix">Matrix:</label>
             <select id="matrix" className="select-field">
-              <option value="">Select an Matrix type</option>
+              <option value="" disabled selected>Select matrix type</option>
               <option value="TYPE1">TYPE1</option>
               <option value="TYPE2">TYPE2</option>
               <option value="TYPE3">TYPE3</option>
@@ -53,14 +57,14 @@ const Index = () => {
           
           <div className="form-group">
             <label htmlFor="comments">Maker Comments:</label>
-            <input type="text" id="comments" className="input-field" />
+            <input type="text" id="comments" className="input-field" placeholder="Add comments" />
             <button className="icon-button">
               <span className="icon">⊕</span>
             </button>
           </div>
           
           <div className="form-group file-upload">
-            <label>Upload Excel File</label>
+            <label>Upload Excel File:</label>
             <div className="file-input-container">
               <label htmlFor="fileUpload" className="file-label">
                 Choose File
