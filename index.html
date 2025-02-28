@@ -4,11 +4,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maker Screen</title>
+    <title>Batch Records</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="maker-screen">
+    <div class="batch-screen">
       <div class="uob-logo">
         <div class="logo-lines">
           <span></span>
@@ -18,80 +18,70 @@
         <h2>UOB</h2>
       </div>
       
-      <div class="maker-container">
-        <div class="maker-header">
-          <h1 class="maker-title">Maker Screen</h1>
-          <div class="maker-subtitle">Please fill in the details below</div>
+      <div class="batch-container">
+        <div class="batch-header">
+          <h1 class="batch-title">Batch Records</h1>
+          <div class="batch-subtitle">View and manage batch records</div>
         </div>
         
-        <div class="maker-form">
-          <div class="form-group">
-            <label for="userId">User ID:</label>
-            <input type="text" id="userId" class="input-field" placeholder="Enter user ID" />
-          </div>
-          
-          <div class="form-group">
-            <label for="appCode">App Code:</label>
-            <select id="appCode" class="select-field">
-              <option value="" disabled selected>Select app code</option>
-              <option value="SPL">SPL</option>
-              <option value="APP1">APP1</option>
-              <option value="APP2">APP2</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="matrix">Matrix:</label>
-            <select id="matrix" class="select-field">
-              <option value="" disabled selected>Select matrix type</option>
-              <option value="TYPE1">TYPE1</option>
-              <option value="TYPE2">TYPE2</option>
-              <option value="TYPE3">TYPE3</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="comments">Maker Comments:</label>
-            <input type="text" id="comments" class="input-field" placeholder="Add comments" />
-            <button class="icon-button">
-              <span class="icon">⊕</span>
-            </button>
-          </div>
-          
-          <div class="form-group file-upload">
-            <label>Upload Excel File:</label>
-            <div class="file-input-container">
-              <label for="fileUpload" class="file-label">
-                Choose File
-              </label>
-              <input 
-                type="file" 
-                id="fileUpload" 
-                accept=".xlsx,.xls,.csv" 
-                class="file-input" 
-                onchange="updateFileName(this)"
-              />
-              <span class="file-name" id="fileName">No file chosen</span>
-            </div>
-          </div>
-          
-          <div class="button-group">
-            <button class="action-button upload-btn">Upload</button>
-            <button class="action-button download-btn">Download</button>
-          </div>
+        <div class="batch-table-container">
+          <table class="batch-table">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Batch Id</th>
+                <th>App Code</th>
+                <th>Matrix Type</th>
+                <th>Uploaded By</th>
+                <th>Uploaded Date</th>
+                <th>Approval Status</th>
+                <th>Maker Comments</th>
+                <th>Checker Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="radio" name="selectBatch" /></td>
+                <td>BATCH-0001</td>
+                <td>MSTRINT</td>
+                <td>MSTRINT</td>
+                <td>123</td>
+                <td>2025-02-04T11:20:52</td>
+                <td>Approved</td>
+                <td>Test</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><input type="radio" name="selectBatch" /></td>
+                <td>BATCH-0002</td>
+                <td>SPL</td>
+                <td>CPB</td>
+                <td>123</td>
+                <td>2025-02-04T12:38:18</td>
+                <td>Approved</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><input type="radio" name="selectBatch" /></td>
+                <td>BATCH-0003</td>
+                <td>PIB</td>
+                <td>CPB</td>
+                <td>123</td>
+                <td>2025-02-04T12:41:39</td>
+                <td>Approved</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="button-group">
+          <button class="action-button download-btn">Download</button>
+          <button class="action-button view-btn">View Records</button>
         </div>
       </div>
     </div>
-
-    <script>
-      function updateFileName(input) {
-        const fileNameElement = document.getElementById('fileName');
-        if (input.files && input.files.length > 0) {
-          fileNameElement.textContent = input.files[0].name;
-        } else {
-          fileNameElement.textContent = 'No file chosen';
-        }
-      }
-    </script>
   </body>
 </html>
