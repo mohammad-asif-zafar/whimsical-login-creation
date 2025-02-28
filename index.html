@@ -1,18 +1,97 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>whimsical-login-creation</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-    <meta property="og:image" content="/og-image.png" />
+    <title>Maker Screen</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
-
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="maker-screen">
+      <div class="uob-logo">
+        <div class="logo-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <h2>UOB</h2>
+      </div>
+      
+      <div class="maker-container">
+        <div class="maker-header">
+          <h1 class="maker-title">Maker Screen</h1>
+          <div class="maker-subtitle">Please fill in the details below</div>
+        </div>
+        
+        <div class="maker-form">
+          <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" class="input-field" placeholder="Enter user ID" />
+          </div>
+          
+          <div class="form-group">
+            <label for="appCode">App Code:</label>
+            <select id="appCode" class="select-field">
+              <option value="" disabled selected>Select app code</option>
+              <option value="SPL">SPL</option>
+              <option value="APP1">APP1</option>
+              <option value="APP2">APP2</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="matrix">Matrix:</label>
+            <select id="matrix" class="select-field">
+              <option value="" disabled selected>Select matrix type</option>
+              <option value="TYPE1">TYPE1</option>
+              <option value="TYPE2">TYPE2</option>
+              <option value="TYPE3">TYPE3</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="comments">Maker Comments:</label>
+            <input type="text" id="comments" class="input-field" placeholder="Add comments" />
+            <button class="icon-button">
+              <span class="icon">⊕</span>
+            </button>
+          </div>
+          
+          <div class="form-group file-upload">
+            <label>Upload Excel File:</label>
+            <div class="file-input-container">
+              <label for="fileUpload" class="file-label">
+                Choose File
+              </label>
+              <input 
+                type="file" 
+                id="fileUpload" 
+                accept=".xlsx,.xls,.csv" 
+                class="file-input" 
+                onchange="updateFileName(this)"
+              />
+              <span class="file-name" id="fileName">No file chosen</span>
+            </div>
+          </div>
+          
+          <div class="button-group">
+            <button class="action-button upload-btn">Upload</button>
+            <button class="action-button download-btn">Download</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function updateFileName(input) {
+        const fileNameElement = document.getElementById('fileName');
+        if (input.files && input.files.length > 0) {
+          fileNameElement.textContent = input.files[0].name;
+        } else {
+          fileNameElement.textContent = 'No file chosen';
+        }
+      }
+    </script>
   </body>
 </html>
